@@ -17,7 +17,8 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:id="@+id/item_wallpaper_image"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_gravity="center_horizontal"
+            android:contentDescription="@string/todo" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -6,10 +6,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/home_screen" />
+        android:text="@string/lock_screen" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"

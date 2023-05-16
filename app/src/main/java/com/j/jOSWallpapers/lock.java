@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WallpapersListFragment extends Fragment implements WallpaperSelectListener {
+public class lock extends Fragment implements WallpaperSelectListener {
     private RecyclerView wallpaperRecyclerView;
     private WallpaperGalleryRecyclerAdapter wallpaperGalleryRecyclerAdapter;
     private List<Wallpaper> wallpapers;
@@ -37,7 +37,7 @@ public class WallpapersListFragment extends Fragment implements WallpaperSelectL
         super.onCreate(savedInstanceState);
 
         wallpapers = new ArrayList<>();
-        wallpapers.add(new Wallpaper("Beach", "https://images.pexels.com/photos/853199/pexels-photo-853199.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"));
+        wallpapers.add(new Wallpaper("Default", "https://raw.githubusercontent.com/jf916/jOS-Wallpaper-Files/main/Lock_screen/0.jpeg"));
         wallpapers.add(new Wallpaper("Mountain", "https://images.pexels.com/photos/1261728/pexels-photo-1261728.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"));
         wallpapers.add(new Wallpaper("Field", "https://images.pexels.com/photos/35857/amazing-beautiful-breathtaking-clouds.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"));
         wallpapers.add(new Wallpaper("Clouds", "https://images.pexels.com/photos/2088205/pexels-photo-2088205.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"));
@@ -50,7 +50,7 @@ public class WallpapersListFragment extends Fragment implements WallpaperSelectL
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_listwallpapers, container, false);
+        View view = inflater.inflate(R.layout.fragment_lock, container, false);
 
         wallpaperRecyclerView = view.findViewById(R.id.fragment_listwallpapers_recyclerView);
         wallpaperRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -116,12 +116,10 @@ public class WallpapersListFragment extends Fragment implements WallpaperSelectL
                 .into(new SimpleTarget<Bitmap>() {
                     @Override
                     public void onResourceReady(Bitmap resource, Transition<? super Bitmap> transition) {
-                        setHomeScreenWallpaper(resource);
-//                        setCroppedHomeScreenWallpaper(resource);
-//                        setLockScreenWallpaper(resource);
-                        Toast.makeText(getContext(), wallpaper.getTitle() + " has been selected as the home screen wallpaper", Toast.LENGTH_SHORT).show();
-                        NavHostFragment.findNavController(WallpapersListFragment.this)
-                                .navigate(R.id.action_wallpapersListFragment_to_lock);
+                        setLockScreenWallpaper(resource);
+                        Toast.makeText(getContext(), wallpaper.getTitle() + " has been selected as the lock screen wallpaper", Toast.LENGTH_SHORT).show();
+                        NavHostFragment.findNavController(lock.this)
+                                .navigate(R.id.action_lock_to_liveWallpaperFragment);
                     }
                 });
     }
