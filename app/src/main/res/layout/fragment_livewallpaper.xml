@@ -5,11 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/live_wallpaper" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/question" />
 
     <Button
         android:layout_width="wrap_content"
@@ -18,10 +26,10 @@
         android:id="@+id/fragment_livewallpaper_set"
         android:layout_gravity="center"/>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:text="@string/textview" />
-
+    <Button
+        android:id="@+id/home_screen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/i_do_not_want_a_live_wallpaper" />
 </LinearLayout>

@@ -1,10 +1,13 @@
 <resources>
     <string name="app_name">jOS Wallpapers</string>
     <string name="wallpaper_description">DVD Live Wallpaper</string>
-    <string name="set_live_wallpaper">Set Live Wallpaper</string>
+    <string name="set_live_wallpaper">yes</string>
     <string name="todo">TODO</string>
-    <string name="textview">if you do not want a live wallpaper exit the app please if you want a live wallpaper push the button above</string>
     <string name="live_wallpaper">Live Wallpaper</string>
     <string name="home_screen">Home Screen</string>
     <string name="lock_screen">Lock Screen</string>
+    <string name="i_do_not_want_a_live_wallpaper">no thank you/i already set one</string>
+    <string name="exit">auto exit app is not working please manually exit the app</string>
+    <string name="question">would you like to set a live wallpaper?</string>
+    <string name="skip">skip because i set a live wallpaper</string>
 </resources>

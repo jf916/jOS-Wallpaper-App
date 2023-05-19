@@ -1,6 +1,9 @@
 package com.j.jOSWallpapers;
 
 import android.app.WallpaperManager;
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Point;
@@ -55,6 +58,22 @@ public class lock extends Fragment implements WallpaperSelectListener {
         wallpaperRecyclerView = view.findViewById(R.id.fragment_listwallpapers_recyclerView);
         wallpaperRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         wallpaperRecyclerView.setAdapter(wallpaperGalleryRecyclerAdapter);
+
+        view.findViewById(R.id.skip_lock).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.setComponent(new ComponentName("com.android.wallpaper", "com.android.wallpaper.picker.CategoryPickerActivity"));
+                try {
+                    startActivity(intent);
+                } catch (ActivityNotFoundException e) {
+                    // Define what your app should do if no activity can handle the intent.
+                    NavHostFragment.findNavController(lock.this)
+                            .navigate(R.id.action_lock_to_exit_now);
+                }
+
+            }
+        });
 
         return view;
     }
@@ -118,8 +137,15 @@ public class lock extends Fragment implements WallpaperSelectListener {
                     public void onResourceReady(Bitmap resource, Transition<? super Bitmap> transition) {
                         setLockScreenWallpaper(resource);
                         Toast.makeText(getContext(), wallpaper.getTitle() + " has been selected as the lock screen wallpaper", Toast.LENGTH_SHORT).show();
-                        NavHostFragment.findNavController(lock.this)
-                                .navigate(R.id.action_lock_to_liveWallpaperFragment);
+                        Intent intent = new Intent(Intent.ACTION_MAIN);
+                        intent.setComponent(new ComponentName("com.android.wallpaper", "com.android.wallpaper.picker.CategoryPickerActivity"));
+                        try {
+                            startActivity(intent);
+                        } catch (ActivityNotFoundException e) {
+                            // Define what your app should do if no activity can handle the intent.
+                            NavHostFragment.findNavController(lock.this)
+                                    .navigate(R.id.action_lock_to_exit_now);
+                        }
                     }
                 });
     }

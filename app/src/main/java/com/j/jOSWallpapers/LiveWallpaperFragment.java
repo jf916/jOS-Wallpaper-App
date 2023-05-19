@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 public class LiveWallpaperFragment extends Fragment {
     @Override
@@ -29,6 +30,15 @@ public class LiveWallpaperFragment extends Fragment {
                 Intent intent = new Intent(WallpaperManager.ACTION_CHANGE_LIVE_WALLPAPER);
                 intent.putExtra(WallpaperManager.EXTRA_LIVE_WALLPAPER_COMPONENT, new ComponentName(getActivity(), MyWallpaperService.class));
                 startActivity(intent);
+                NavHostFragment.findNavController(LiveWallpaperFragment.this)
+                        .navigate(R.id.action_liveWallpaperFragment_to_wallpapersListFragment);
+            }
+        });
+        view.findViewById(R.id.home_screen).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(LiveWallpaperFragment.this)
+                        .navigate(R.id.action_liveWallpaperFragment_to_wallpapersListFragment);
             }
         });
 

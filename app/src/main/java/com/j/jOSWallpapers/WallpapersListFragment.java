@@ -1,6 +1,8 @@
 package com.j.jOSWallpapers;
 
 import android.app.WallpaperManager;
+import android.content.ComponentName;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Point;
@@ -26,6 +28,11 @@ import com.bumptech.glide.request.transition.Transition;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 public class WallpapersListFragment extends Fragment implements WallpaperSelectListener {
     private RecyclerView wallpaperRecyclerView;
@@ -55,6 +62,14 @@ public class WallpapersListFragment extends Fragment implements WallpaperSelectL
         wallpaperRecyclerView = view.findViewById(R.id.fragment_listwallpapers_recyclerView);
         wallpaperRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         wallpaperRecyclerView.setAdapter(wallpaperGalleryRecyclerAdapter);
+
+        view.findViewById(R.id.skip_home).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(WallpapersListFragment.this)
+                        .navigate(R.id.action_wallpapersListFragment_to_lock);
+            }
+        });
 
         return view;
     }
@@ -126,3 +141,5 @@ public class WallpapersListFragment extends Fragment implements WallpaperSelectL
                 });
     }
 }
+
+

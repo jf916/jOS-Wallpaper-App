@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/wallpapersListFragment">
+    app:startDestination="@id/liveWallpaperFragment">
 
     <fragment
         android:id="@+id/wallpapersListFragment"
@@ -18,14 +18,23 @@
         android:id="@+id/liveWallpaperFragment"
         android:name="com.j.jOSWallpapers.LiveWallpaperFragment"
         android:label="fragment_livewallpaper"
-        tools:layout="@layout/fragment_livewallpaper" />
+        tools:layout="@layout/fragment_livewallpaper" >
+        <action
+            android:id="@+id/action_liveWallpaperFragment_to_wallpapersListFragment"
+            app:destination="@id/wallpapersListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/lock"
         android:name="com.j.jOSWallpapers.lock"
         android:label="fragment_lock"
         tools:layout="@layout/fragment_lock">
         <action
-            android:id="@+id/action_lock_to_liveWallpaperFragment"
-            app:destination="@id/liveWallpaperFragment" />
+            android:id="@+id/action_lock_to_exit_now"
+            app:destination="@id/exit_now" />
     </fragment>
+    <fragment
+        android:id="@+id/exit_now"
+        android:name="com.j.jOSWallpapers.exit_now"
+        android:label="fragment_exit_now"
+        tools:layout="@layout/fragment_exit_now" />
 </navigation>

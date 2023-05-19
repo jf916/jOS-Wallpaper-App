@@ -22,7 +22,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
                 <action android:name="android.intent.action.SET_WALLPAPER" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -39,5 +38,6 @@
             </intent-filter>
             <meta-data android:name="android.service.wallpaper" android:resource="@xml/mywallpaper" />
         </service>
+
     </application>
     </manifest>
