@@ -1,2 +1,2 @@
 # jOS-Wallpaper-App
-wallpaper app
+it is just a wallpaper app
