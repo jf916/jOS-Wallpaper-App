@@ -7,7 +7,7 @@
     <string name="home_screen">Home Screen</string>
     <string name="lock_screen">Lock Screen</string>
     <string name="i_do_not_want_a_live_wallpaper">no thank you/i already set one</string>
-    <string name="exit">auto exit app is not working please manually exit the app</string>
+    <string name="exit">auto exit app is not working please manually exit the app and go to wallpaper and style</string>
     <string name="question">would you like to set a live wallpaper?</string>
     <string name="skip">skip because i set a live wallpaper</string>
 </resources>
